@@ -280,16 +280,14 @@ mk_zip
 rm -rf ${INDIR} ${OUTDIR}
 
 if [ -f ${LOCALDIR}/${NEWZIP} ]; then
-    ssh-keyscan -t ecdsa -p 22 -H frs.sourceforge.net 2>&1 | tee -a /root/.ssh/known_hosts
-    SF_PROJECT=whyred-miui
-if [ "${1}" == "release" ]; then
-    scp ${NEWZIP} shekhawat2@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}/${TYPE^^}/${VERSION^^}
+
+    SF_PROJECT=Miui_port
+
+    scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}
     NEWURL="https://sourceforge.net/projects/${SF_PROJECT}/files/${TYPE^^}/${VERSION^^}/${NEWZIP}/download"
-elif [ "${1}" == "test" ]; then
-    scp ${NEWZIP} shekhawat2@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}/testing/${TYPE^^}/${VERSION^^}
-    NEWURL="https://sourceforge.net/projects/${SF_PROJECT}/files/testing/${TYPE^^}/${VERSION^^}/${NEWZIP}/download"
-else
-    curl "https://bashupload.com/${NEWZIP}" --data-binary "@${NEWZIP}"
+
+
+
 fi
     zsize=`du -sk ${NEWZIP} | awk '{$1*=1024;printf $1}'`
     printf "[${NEWZIP}]($NEWURL)\n" > "${LOCALDIR}/info.txt"
