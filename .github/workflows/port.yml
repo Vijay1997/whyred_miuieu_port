@@ -45,6 +45,6 @@ jobs:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
-          sudo -H -E ./port.sh release
+     
           sudo -H -E ./eu.py lavender beta
-#          sudo -H -E ./port.sh release
+          sudo -H -E ./port.sh release
