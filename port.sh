@@ -288,7 +288,7 @@ if [ -f ${LOCALDIR}/${NEWZIP} ]; then
 
 
 
-fi
+
     zsize=`du -sk ${NEWZIP} | awk '{$1*=1024;printf $1}'`
     printf "[${NEWZIP}]($NEWURL)\n" > "${LOCALDIR}/info.txt"
     printf "Size: $(bytesToHuman $zsize)" >> "${LOCALDIR}/info.txt"
