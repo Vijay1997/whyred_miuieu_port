@@ -237,6 +237,8 @@ mk_zip() {
     $IMG2SDAT $vout -o flashable -v 4 -p vendor > /dev/null
     $IMG2SDAT $sout -o flashable -v 4 -p system > /dev/null
     cd flashable
+    7z e flahable.zip  firmware-update META-INF
+   
 
     echo "Compressing system.new.dat"
     brotli -7 system.new.dat
@@ -246,7 +248,7 @@ mk_zip() {
     rm system.new.dat || exit 1
     rm vendor.new.dat || exit 1
 
-    zip -rv9 ../${NEWZIP} boot.img system.new.dat.br system.patch.dat system.transfer.list vendor.new.dat.br vendor.patch.dat vendor.transfer.list
+    zip -rv9 ../${NEWZIP} firmware-update META-INF boot.img system.new.dat.br system.patch.dat system.transfer.list vendor.new.dat.br vendor.patch.dat vendor.transfer.list
     cd ..
 }
 
