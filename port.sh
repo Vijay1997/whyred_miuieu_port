@@ -63,6 +63,7 @@ partitions=(system vendor)
 for partition in ${partitions[@]}; do
 echo "Extracting ${partition} to ${INDIR}"
 7z e "${INDIR}/${ZIPNAME}" ${partition}.new.dat.br ${partition}.transfer.list -o"$INDIR"
+7z e "${LOCALDIR}/flashable/flashable.zip
 brotli -df ${INDIR}/${partition}.new.dat.br
 $SDAT2IMG ${INDIR}/${partition}.transfer.list ${INDIR}/${partition}.new.dat ${INDIR}/${partition}.img > /dev/null
 rm -rf ${INDIR}/${partition}.transfer.list ${INDIR}/${partition}.new.dat*
@@ -241,7 +242,7 @@ mk_zip() {
     $IMG2SDAT $vout -o flashable -v 4 -p vendor > /dev/null
     $IMG2SDAT $sout -o flashable -v 4 -p system > /dev/null
     cd flashable
-    7z e flahable.zip  firmware-update META-INF
+   
    
 
     echo "Compressing system.new.dat"
@@ -290,16 +291,16 @@ if [ -f ${LOCALDIR}/${NEWZIP} ]; then
     SF_PROJECT=Miui_port
 
     scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}
-    NEWURL="https://sourceforge.net/projects/${SF_PROJECT}/files/${TYPE^^}/${VERSION^^}/${NEWZIP}/download"
 
 
 
 
-    zsize=`du -sk ${NEWZIP} | awk '{$1*=1024;printf $1}'`
-    printf "[${NEWZIP}]($NEWURL)\n" > "${LOCALDIR}/info.txt"
-    printf "Size: $(bytesToHuman $zsize)" >> "${LOCALDIR}/info.txt"
-    tg_send "$(cat ${LOCALDIR}/info.txt)"
-else
-    exit 0
+
+
+
+
+
+
+
 fi
 done
