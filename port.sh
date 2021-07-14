@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export LOCALDIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 export TOOLS=${LOCALDIR}/tools
-export DEVICE=whyred
+export DEVICE=lavender
 export TYPE=eu
 export VERSIONS=(beta)
 export SDAT2IMG=${TOOLS}/sdat2img.py
