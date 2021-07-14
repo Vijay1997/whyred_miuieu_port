@@ -250,28 +250,28 @@ mk_zip() {
     cd ..
 }
 
-urlencode() {
-    echo "$*" | sed 's:%:%25:g;s: :%20:g;s:<:%3C:g;s:>:%3E:g;s:#:%23:g;s:{:%7B:g;s:}:%7D:g;s:|:%7C:g;s:\\:%5C:g;s:\^:%5E:g;s:~:%7E:g;s:\[:%5B:g;s:\]:%5D:g;s:`:%60:g;s:;:%3B:g;s:/:%2F:g;s:?:%3F:g;s^:^%3A^g;s:@:%40:g;s:=:%3D:g;s:&:%26:g;s:\$:%24:g;s:\!:%21:g;s:\*:%2A:g'
-}
 
-tg_send() {
-    if [[ -z ${BOT_TOKEN} ]]; then
-        echo "tg_msg() was called but there was no token!"
-        return 1
-    fi
 
-    if [[ -z ${CHAT_ID} ]]; then
-        echo "tg_msg() was called but there was no chat ID!"
-        return 1
-    fi
 
-    BOTURL="https://api.telegram.org/bot${BOT_TOKEN}/sendMessage"
-    TEXT="$1"
-    until [ $(echo -n "$TEXT" | wc -m) -eq 0 ]; do
-    res=$(curl -s "${BOTURL}" -d "chat_id=${CHAT_ID}" -d "text=$(urlencode "${TEXT:0:4096}")" -d "parse_mode=Markdown" -d "disable_web_page_preview=true")
-    TEXT="${TEXT:4096}"
-    done
-}
+
+
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+    
+
 
 patch_rom
 mk_img || continue
