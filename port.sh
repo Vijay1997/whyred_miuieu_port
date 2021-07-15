@@ -20,7 +20,7 @@ export fmiui="${SYSTEMDIR}/system/app/miui/miui.apk"
 
 free - h
 lscpu
-hwinfo –short
+hwinfo –-short
 cat /proc/cpuinfo
 date=`date +%Y%m%d%H%M%S`
 for VERSION in ${VERSIONS[@]}; do
@@ -63,7 +63,7 @@ partitions=(system vendor)
 for partition in ${partitions[@]}; do
 echo "Extracting ${partition} to ${INDIR}"
 7z e "${INDIR}/${ZIPNAME}" ${partition}.new.dat.br ${partition}.transfer.list -o"$INDIR"
-7z e "${LOCALDIR}/flashable/flashable.zip
+7z e "${LOCALDIR}/flashable/flashable.zip" 
 brotli -df ${INDIR}/${partition}.new.dat.br
 $SDAT2IMG ${INDIR}/${partition}.transfer.list ${INDIR}/${partition}.new.dat ${INDIR}/${partition}.img > /dev/null
 rm -rf ${INDIR}/${partition}.transfer.list ${INDIR}/${partition}.new.dat*
@@ -291,6 +291,7 @@ if [ -f ${LOCALDIR}/${NEWZIP} ]; then
     SF_PROJECT=Miui_port
 
     scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}
+ fi
 
 
 
@@ -302,5 +303,4 @@ if [ -f ${LOCALDIR}/${NEWZIP} ]; then
 
 
 
-fi
-done
+
