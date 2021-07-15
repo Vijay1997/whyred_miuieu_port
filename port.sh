@@ -259,7 +259,7 @@ mk_zip
 rm -rf ${INDIR} ${OUTDIR}
 
 if [ -f ${LOCALDIR}/${NEWZIP} ]; then
-    ssh-keyscan -t rsa -p 22 -H sourceforge.net 
+   
     scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
 fi
 done
