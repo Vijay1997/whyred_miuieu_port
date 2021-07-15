@@ -18,11 +18,6 @@ export fframeworkextres="${SYSTEMDIR}/system/framework/framework-ext-res/framewo
 export fmiuisystem="${SYSTEMDIR}/system/app/miuisystem/miuisystem.apk"
 export fmiui="${SYSTEMDIR}/system/app/miui/miui.apk"
 
-free -h
-df -h
-sudo fdisk -l
-cat /proc/meminfo
-hwinfo –-short
 cat /proc/cpuinfo
 date=`date +%Y%m%d%H%M%S`
 for VERSION in ${VERSIONS[@]}; do
@@ -259,29 +254,6 @@ mk_zip() {
     cd ..
 }
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-
-
-    
-
-
 patch_rom
 mk_img || continue
 mk_zip
@@ -289,9 +261,8 @@ mk_zip
 rm -rf ${INDIR} ${OUTDIR}
 
 if [ -f ${LOCALDIR}/${NEWZIP} ]; then
-
+    ssh-keyscan -t ecdsa -p 22 -H frs.sourceforge.net 2>&1 | tee -a /root/.ssh/known_hosts
     SF_PROJECT=Miui_port
-
     scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}
 fi
 done
