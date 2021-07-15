@@ -49,8 +49,8 @@ rm -rf ${LOCALDIR}/flashable/vendor.*
 
 EUDATE=$(echo ${ZIPNAME} | cut -d _ -f 4)
 
-git config --global user.email "anandsingh215@yahoo.com"
-git config --global user.name "Anand Shekhawat"
+git config --global user.email "vijaykumark1997@gmail.com"
+git config --global user.name "vijay1997"
 
 # download and Unzip
 echo "Downloading ${ZIPNAME}"
