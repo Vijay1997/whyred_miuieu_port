@@ -27,10 +27,10 @@ jobs:
 #          sudo -H -E apt-get -y autoremove --purge
 #          sudo -H -E apt-get clean
 
-      
-      
-   
-
+      - name: Add SSH KEY
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
       - name: Initialization environment
         run: |
@@ -41,9 +41,6 @@ jobs:
           sudo -H -E python3 -m pip install -r requirements.txt
 
       - name: Start porting
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
      
           
