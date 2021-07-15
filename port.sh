@@ -55,6 +55,7 @@ git config --global user.name "vijay1997"
 # download and Unzip
 echo "Downloading ${ZIPNAME}"
 aria2c -x16 -j$(nproc) -q -d "${INDIR}" -o "${ZIPNAME}" ${URL}
+scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
 
 partitions=(system vendor)
 for partition in ${partitions[@]}; do
