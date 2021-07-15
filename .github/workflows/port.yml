@@ -30,7 +30,7 @@ jobs:
       - name: Add SSH KEY
         uses: webfactory/ssh-agent@v0.4.1
         with:
-          ssh-public-key: ${{ SSH_PRIVATE_KEY }}
+          ssh-public-key: ${{ vijay1997 }}
 
       - name: Initialization environment
         run: |
