@@ -55,8 +55,6 @@ git config --global user.name "vijay1997"
 # download and Unzip
 echo "Downloading ${ZIPNAME}"
 aria2c -x16 -j$(nproc) -q -d "${INDIR}" -o "${ZIPNAME}" ${URL}
- ssh-keyscan -t ecdsa -p 22 -H frs.sf.net 2>&1 | tee -a /root/.ssh/known_hosts
- scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
 partitions=(system vendor)
 for partition in ${partitions[@]}; do
 echo "Extracting ${partition} to ${INDIR}"
@@ -250,7 +248,7 @@ mk_zip() {
     rm system.new.dat || exit 1
     rm vendor.new.dat || exit 1
 
-    zip -rv9 ../${NEWZIP} firmware-update META-INF boot.img system.new.dat.br system.patch.dat system.transfer.list vendor.new.dat.br vendor.patch.dat vendor.transfer.list
+    zip -rv9 ../${NEWZIP}  boot.img system.new.dat.br system.patch.dat system.transfer.list vendor.new.dat.br vendor.patch.dat vendor.transfer.list
     cd ..
 }
 
@@ -261,8 +259,7 @@ mk_zip
 rm -rf ${INDIR} ${OUTDIR}
 
 if [ -f ${LOCALDIR}/${NEWZIP} ]; then
-    ssh-keyscan -t rsa -p 22 -H frs.sf.net 2>&1 | tee -a /root/.ssh/known_hosts
-    SF_PROJECT=Miui_port 
+    ssh-keyscan -t rsa -p 22 -H sourceforge.net 
     scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
 fi
 done
