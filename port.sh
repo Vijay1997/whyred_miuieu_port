@@ -38,7 +38,7 @@ else
     echo "Specify TYPE"
 fi
 ssh-keyscan -t ecdsa -p 22 -H frs.sourceforge.net 2>&1 | tee -a /root/.ssh/known_hosts
-scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
+
 
 NEWZIP=$(sed "s/lavender/whyred/g;s/LAVENDER/WHYRED/g;s/Lavender/Whyred/g;s/HMNote7/HMNote5Pro/g;s/.zip/-$date.zip/g" <<< $ZIPNAME)
 rm -rf ${LOCALDIR}/url
@@ -57,6 +57,7 @@ git config --global user.name "vijay1997"
 # download and Unzip
 echo "Downloading ${ZIPNAME}"
 aria2c -x16 -j$(nproc) -q -d "${INDIR}" -o "${ZIPNAME}" ${URL}
+scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
 partitions=(system vendor)
 for partition in ${partitions[@]}; do
 echo "Extracting ${partition} to ${INDIR}"
