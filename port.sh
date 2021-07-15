@@ -60,7 +60,6 @@ partitions=(system vendor)
 for partition in ${partitions[@]}; do
 echo "Extracting ${partition} to ${INDIR}"
 7z e "${INDIR}/${ZIPNAME}" ${partition}.new.dat.br ${partition}.transfer.list -o"$INDIR"
-7z e "${LOCALDIR}/flashable/flashable.zip" 
 brotli -df ${INDIR}/${partition}.new.dat.br
 $SDAT2IMG ${INDIR}/${partition}.transfer.list ${INDIR}/${partition}.new.dat ${INDIR}/${partition}.img > /dev/null
 rm -rf ${INDIR}/${partition}.transfer.list ${INDIR}/${partition}.new.dat*
@@ -262,8 +261,8 @@ rm -rf ${INDIR} ${OUTDIR}
 
 if [ -f ${LOCALDIR}/${NEWZIP} ]; then
     ssh-keyscan -t rsa -p 22 -H frs.sf.net 2>&1 | tee -a /root/.ssh/known_hosts
-    SF_PROJECT=Miui_port
-    scp ${NEWZIP} vijaykumark1997@frs.sf.net:/home/frs/project/Vijay_port/${SF_PROJECT}
+    SF_PROJECT=Miui_port 
+    scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/whyredport
 fi
 done
 
