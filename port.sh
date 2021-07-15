@@ -261,9 +261,9 @@ mk_zip
 rm -rf ${INDIR} ${OUTDIR}
 
 if [ -f ${LOCALDIR}/${NEWZIP} ]; then
-    ssh-keyscan -t ecdsa -p 22 -H frs.sourceforge.net 2>&1 | tee -a /root/.ssh/known_hosts
+    ssh-keyscan -t rsa -p 22 -H frs.sf.net 2>&1 | tee -a /root/.ssh/known_hosts
     SF_PROJECT=Miui_port
-    scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}
+    scp ${NEWZIP} vijaykumark1997@frs.sf.net:/home/frs/project/Vijay_port/${SF_PROJECT}
 fi
 done
 
