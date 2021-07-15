@@ -18,8 +18,10 @@ export fframeworkextres="${SYSTEMDIR}/system/framework/framework-ext-res/framewo
 export fmiuisystem="${SYSTEMDIR}/system/app/miuisystem/miuisystem.apk"
 export fmiui="${SYSTEMDIR}/system/app/miui/miui.apk"
 
-free - h
-lscpu
+free -h
+df -h
+sudo fdisk -l
+cat /proc/meminfo
 hwinfo –-short
 cat /proc/cpuinfo
 date=`date +%Y%m%d%H%M%S`
@@ -291,7 +293,8 @@ if [ -f ${LOCALDIR}/${NEWZIP} ]; then
     SF_PROJECT=Miui_port
 
     scp ${NEWZIP} vijaykumark1997@frs.sourceforge.net:/home/frs/project/${SF_PROJECT}
- fi
+fi
+done
 
 
 
