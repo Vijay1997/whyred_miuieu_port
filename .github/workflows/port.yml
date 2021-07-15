@@ -26,7 +26,10 @@ jobs:
 #          sudo -H -E apt-get update
 #          sudo -H -E apt-get -y autoremove --purge
 #          sudo -H -E apt-get clean
-
+      - name: Add SSH KEY
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ SSH_PRIVATE_KEY }}
     
       - name: Initialization environment
         run: |
