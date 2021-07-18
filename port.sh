@@ -18,7 +18,6 @@ export fframeworkextres="${SYSTEMDIR}/system/framework/framework-ext-res/framewo
 export fmiuisystem="${SYSTEMDIR}/system/app/miuisystem/miuisystem.apk"
 export fmiui="${SYSTEMDIR}/system/app/miui/miui.apk"
 
-cat /proc/cpuinfo
 date=`date +%Y%m%d%H%M%S`
 for VERSION in ${VERSIONS[@]}; do
 if [ "${TYPE}" = "global" ]; then
