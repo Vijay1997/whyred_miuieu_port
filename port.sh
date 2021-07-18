@@ -32,8 +32,7 @@ elif [ "${TYPE}" = "mmx" ]; then
 elif [ "${TYPE}" = "eu" ]; then
     python3 ${LOCALDIR}/${TYPE}.py ${DEVICE} ${VERSION}
     URL=$(cat ${LOCALDIR}/url)
-    URL="https://drive.tuntunidl.workers.dev/xiaomi.eu_multi_HMNote7_21.4.22_v12-10.zip"
-    ZIPNAME=$(echo ${URL} | cut -d / -f 4)
+    ZIPNAME=$(echo ${URL} | cut -d / -f 10)
 else
     echo "Specify TYPE"
 fi
