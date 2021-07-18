@@ -33,6 +33,7 @@ elif [ "${TYPE}" = "eu" ]; then
     python3 ${LOCALDIR}/${TYPE}.py ${DEVICE} ${VERSION}
     URL=$(cat ${LOCALDIR}/url)
     ZIPNAME=$(echo ${URL} | cut -d / -f 10)
+    URL=https://telkomuniversity.dl.sourceforge.net/project/xiaomi-eu-multilang-miui-roms/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv12/xiaomi.eu_multi_HMNote7_V12.5.3.0.QFGCNXM_v12-10.zip
 else
     echo "Specify TYPE"
 fi
