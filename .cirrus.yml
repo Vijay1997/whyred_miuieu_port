@@ -1,0 +1,4 @@
+container:
+  image: openjdk:latest
+  cpu: 4
+  memory: 12G
